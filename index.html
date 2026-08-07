@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mimi's artmake | 料金表</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #faf8f5;
+  --bg2: #f3ede6;
+  --brown: #8a7060;
+  --brown-dark: #5a4030;
+  --brown-light: #c4aa94;
+  --text: #3a2e28;
+  --text-muted: #9a8878;
+  --gold: #c09a6e;
+  --cream: #f7f0e8;
+  --line: #ddd4c4;
+}
+body {
+  background: #ede8e0;
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px;
+  min-height: 100vh;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text);
+}
+.page {
+  width: 620px;
+  background: var(--bg);
+}
+
+/* ヘッダー */
+.header {
+  background: var(--brown-dark);
+  padding: 30px 40px 26px;
+  text-align: center;
+}
+.header-script {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--brown-light);
+  letter-spacing: 0.12em;
+  margin-bottom: 5px;
+}
+.header-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 22px;
+  font-weight: 300;
+  color: #fff;
+  letter-spacing: 0.3em;
+  margin-bottom: 4px;
+}
+.header-sub {
+  font-size: 9px;
+  color: var(--brown-light);
+  letter-spacing: 0.3em;
+}
+.header-line {
+  width: 40px;
+  height: 0.5px;
+  background: var(--gold);
+  margin: 10px auto 0;
+}
+
+/* コンテンツ */
+.content {
+  padding: 32px 36px 36px;
+}
+
+/* セクション */
+.section {
+  margin-bottom: 28px;
+}
+.section:last-child { margin-bottom: 0; }
+
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 0.5px solid var(--line);
+}
+.section-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  min-width: 20px;
+}
+.section-titles {}
+.section-jp {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--brown-dark);
+  letter-spacing: 0.08em;
+}
+.section-en {
+  font-size: 9px;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  margin-top: 1px;
+}
+
+/* 料金行 */
+.price-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: var(--cream);
+}
+.price-row:nth-child(even) {
+  background: #f0e9df;
+}
+.price-row.highlight {
+  background: var(--brown-dark);
+}
+.row-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.price-row.highlight .row-label {
+  color: var(--brown-light);
+}
+.row-note {
+  font-size: 9px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.price-row.highlight .row-note {
+  color: rgba(196,170,148,0.7);
+}
+.row-price {
+  text-align: right;
+}
+.price-num {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--brown-dark);
+  letter-spacing: 0.02em;
+}
+.price-row.highlight .price-num {
+  color: #fff;
+}
+.price-yen {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-left: 1px;
+}
+.price-row.highlight .price-yen {
+  color: var(--brown-light);
+}
+.price-tag {
+  display: inline-block;
+  font-size: 8px;
+  background: var(--gold);
+  color: #fff;
+  padding: 1px 7px;
+  margin-left: 8px;
+  letter-spacing: 0.05em;
+  vertical-align: middle;
+}
+
+/* シミ・頭皮テーブル */
+.size-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.size-table tr {
+  border-bottom: 0.5px solid var(--line);
+}
+.size-table tr:last-child { border-bottom: none; }
+.size-table tr:nth-child(odd) td { background: var(--cream); }
+.size-table tr:nth-child(even) td { background: #f0e9df; }
+.size-table td {
+  padding: 9px 16px;
+  font-size: 11px;
+  color: var(--text);
+}
+.size-table td:first-child {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 12px;
+  color: var(--brown-dark);
+  width: 36%;
+}
+.size-table td:last-child {
+  text-align: right;
+  font-family: 'Noto Serif JP', serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--brown-dark);
+  width: 36%;
+}
+.size-sub {
+  font-size: 8.5px;
+  color: var(--text-muted);
+  font-family: 'Noto Sans JP', sans-serif;
+  display: block;
+  margin-top: 1px;
+}
+.table-note {
+  background: var(--bg2);
+  border: 0.5px solid var(--line);
+  border-top: none;
+  padding: 7px 16px;
+  font-size: 8.5px;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+.divider {
+  border: none;
+  border-top: 0.5px solid var(--line);
+  margin: 28px 0;
+}
+
+/* 注意事項 */
+.notes {
+  background: var(--bg2);
+  padding: 18px 22px;
+}
+.notes-title {
+  font-size: 9px;
+  color: var(--brown);
+  letter-spacing: 0.2em;
+  margin-bottom: 8px;
+}
+.notes ul {
+  list-style: none;
+}
+.notes ul li {
+  font-size: 9px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  padding-left: 10px;
+  position: relative;
+}
+.notes ul li::before {
+  content: '・';
+  position: absolute;
+  left: 0;
+}
+
+/* フッター */
+.footer {
+  background: var(--brown-dark);
+  padding: 14px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: #fff;
+  opacity: 0.9;
+}
+.footer-ig {
+  font-size: 9px;
+  color: var(--brown-light);
+  letter-spacing: 0.08em;
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="header-script">Mimi's artmake</div>
+    <div class="header-title">施術メニュー・料金</div>
+    <div class="header-sub">PRICE LIST｜完全予約制・女性専用</div>
+    <div class="header-line"></div>
+  </div>
+
+  <div class="content">
+
+    <!-- 眉 -->
+    <div class="section">
+      <div class="section-head">
+        <div class="section-num">01</div>
+        <div class="section-titles">
+          <div class="section-jp">眉アートメイク</div>
+          <div class="section-en">Eyebrow Artmake</div>
+        </div>
+      </div>
+      <div class="price-rows">
+        <div class="price-row">
+          <div>
+            <div class="row-label">1回施術</div>
+          </div>
+          <div class="row-price">
+            <span class="price-num">45,000</span>
+            <span class="price-yen">円</span>
+          </div>
+        </div>
+        <div class="price-row highlight">
+          <div>
+            <div class="row-label">2回セット <span class="price-tag">おすすめ</span></div>
+            <div class="row-note">初回＋2回目込み</div>
+          </div>
+          <div class="row-price">
+            <span class="price-num">65,000</span>
+            <span class="price-yen">円</span>
+          </div>
+        </div>
+        <div class="price-row">
+          <div>
+            <div class="row-label">リタッチ（当院施術後）</div>
+          </div>
+          <div class="row-price">
+            <span class="price-num">35,000</span>
+            <span class="price-yen">円</span>
+          </div>
+        </div>
+        <div class="price-row">
+          <div>
+            <div class="row-label">リタッチ（他院施術後）</div>
+          </div>
+          <div class="row-price">
+            <span class="price-num">45,000</span>
+            <span class="price-yen">円</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- アイライン -->
+    <div class="section">
+      <div class="section-head">
+        <div class="section-num">02</div>
+        <div class="section-titles">
+          <div class="section-jp">アイライン</div>
+          <div class="section-en">Eyeliner Artmake</div>
+        </div>
+      </div>
+      <div class="price-rows">
+        <div class="price-row">
+          <div>
+            <div class="row-label">1回施術</div>
+
+          </div>
+          <div class="row-price">
+            <span class="price-num">35,000</span>
+            <span class="price-yen">円</span>
+          </div>
+        </div>
+        <div class="price-row highlight">
+          <div>
+            <div class="row-label">2回セット <span class="price-tag">おすすめ</span></div>
+            <div class="row-note">初回＋2回目込み</div>
+          </div>
+          <div class="row-price">
+            <span class="price-num">55,000</span>
+            <span class="price-yen">円</span>
+          </div>
+        </div>
+        <div class="price-row">
+          <div>
+            <div class="row-label">リタッチ（当院施術後）</div>
+          </div>
+          <div class="row-price">
+            <span class="price-num">35,000</span>
+            <span class="price-yen">円</span>
+          </div>
+        </div>
+        <div class="price-row">
+          <div>
+            <div class="row-label">リタッチ（他院施術後）</div>
+          </div>
+          <div class="row-price">
+            <span class="price-num">45,000</span>
+            <span class="price-yen">円</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- シミ消し・傷消し -->
+    <div class="section">
+      <div class="section-head">
+        <div class="section-num">03</div>
+        <div class="section-titles">
+          <div class="section-jp">シミ消し・傷消し</div>
+          <div class="section-en">Spot &amp; Scar Cover Artmake</div>
+        </div>
+      </div>
+      <table class="size-table">
+        <tr>
+          <td>S サイズ<span class="size-sub">〜1cm × 1cm</span></td>
+          <td style="font-size:10px;color:#9a8878;">小さいシミ・小さい傷痕</td>
+          <td>25,000<span style="font-size:10px;">円</span></td>
+        </tr>
+        <tr>
+          <td>M サイズ<span class="size-sub">〜3cm × 3cm</span></td>
+          <td style="font-size:10px;color:#9a8878;">中程度のシミ・色素沈着</td>
+          <td>35,000<span style="font-size:10px;">円</span></td>
+        </tr>
+        <tr>
+          <td>L サイズ<span class="size-sub">3cm × 3cm〜</span></td>
+          <td style="font-size:10px;color:#9a8878;">広範囲のシミ・大きい傷痕</td>
+          <td>45,000<span style="font-size:10px;">円</span></td>
+        </tr>
+      </table>
+      <div class="table-note">※ すべて1回あたりの料金（税込）。範囲・状態により変動あり。効果を出すため3回以上を推奨。</div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- 頭皮 -->
+    <div class="section">
+      <div class="section-head">
+        <div class="section-num">04</div>
+        <div class="section-titles">
+          <div class="section-jp">頭皮アートメイク</div>
+          <div class="section-en">Scalp Artmake</div>
+        </div>
+      </div>
+      <table class="size-table">
+        <tr>
+          <td>円形脱毛<span class="size-sub">〜3cm × 3cm</span></td>
+          <td style="font-size:10px;color:#9a8878;">部分的な薄毛・抜け毛カバー</td>
+          <td>35,000<span style="font-size:10px;">円</span></td>
+        </tr>
+        <tr>
+          <td>つむじ<span class="size-sub">〜5cm × 5cm</span></td>
+          <td style="font-size:10px;color:#9a8878;">つむじ周りの薄毛カバー</td>
+          <td>45,000<span style="font-size:10px;">円</span></td>
+        </tr>
+        <tr>
+          <td>全頭<span class="size-sub">全体</span></td>
+          <td style="font-size:10px;color:#9a8878;">全体的な薄毛・密度アップ</td>
+          <td>65,000<span style="font-size:10px;">円</span></td>
+        </tr>
+      </table>
+      <div class="table-note">※ すべて1回あたりの料金（税込）。効果を出すため3回以上の施術を推奨。</div>
+    </div>
+
+  </div>
+
+  <!-- 注意事項 -->
+  <div class="notes">
+    <div class="notes-title">施術について</div>
+    <ul>
+      <li>アートメイクは個人差がありますが、1回目の色の定着率は約20%程度といわれています。2回施術を行うことで、より自然な仕上がりと色の定着が期待でき、約2〜3年間美しい状態を維持しやすくなります</li>
+      <li>シミ消し、頭皮アートメイクは、範囲や状態によって必要な施術回数が異なります。カウンセリングにてご希望を伺いながら、最適な施術プランをご提案いたします</li>
+      <li>カウンセリングにてお気軽にご相談ください</li>
+      <li>料金はすべて税込表示です</li>
+      <li>妊娠中・授乳中の方はご相談ください</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    <div class="footer-logo">Mimi's artmake</div>
+    <div class="footer-ig">📷 @artmake.mimi</div>
+  </div>
+
+</div>
+</body>
+</html>
