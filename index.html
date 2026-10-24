@@ -18,6 +18,9 @@
   --gold: #c09a6e;
   --cream: #f7f0e8;
   --line: #ddd4c4;
+  --warn-bg: #fdf3f3;
+  --warn-border: #e8c4c4;
+  --warn-text: #a05050;
 }
 body {
   background: #ede8e0;
@@ -28,10 +31,7 @@ body {
   font-family: 'Noto Sans JP', sans-serif;
   color: var(--text);
 }
-.page {
-  width: 620px;
-  background: var(--bg);
-}
+.page { width: 620px; background: var(--bg); }
 
 /* ヘッダー */
 .header {
@@ -67,15 +67,114 @@ body {
   margin: 10px auto 0;
 }
 
-/* コンテンツ */
-.content {
-  padding: 32px 36px 36px;
+/* 保証セクション */
+.guarantee-section {
+  background: var(--cream);
+  border: 0.5px solid var(--line);
+  margin: 24px 36px 0;
+  padding: 18px 20px;
+}
+.guarantee-title-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.guarantee-badge {
+  background: var(--brown-dark);
+  color: #fff;
+  border-radius: 50%;
+  width: 72px;
+  height: 72px;
+  min-width: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Noto Serif JP', serif;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+}
+.guarantee-body {}
+.guarantee-lead {
+  font-size: 11px;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+.guarantee-lead strong {
+  color: var(--brown-dark);
+  font-weight: 500;
+}
+.guarantee-checks {
+  list-style: none;
+}
+.guarantee-checks li {
+  font-size: 10px;
+  color: var(--text-muted);
+  padding: 2px 0 2px 16px;
+  position: relative;
+  line-height: 1.6;
+}
+.guarantee-checks li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--brown);
+  font-size: 9px;
+}
+.guarantee-divider {
+  border: none;
+  border-top: 0.5px solid var(--line);
+  margin: 12px 0;
+}
+.guarantee-exclusion-title {
+  font-size: 9px;
+  color: var(--warn-text);
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.guarantee-exclusion-title::before {
+  content: '✕';
+  font-size: 9px;
+}
+.guarantee-exclusion-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+}
+.guarantee-exclusion-list li {
+  font-size: 9px;
+  color: var(--text-muted);
+  padding-left: 8px;
+  position: relative;
+}
+.guarantee-exclusion-list li::before {
+  content: '・';
+  position: absolute;
+  left: 0;
+}
+.guarantee-info {
+  margin-top: 10px;
+  background: var(--bg2);
+  border: 0.5px solid var(--line);
+  padding: 7px 12px;
+  font-size: 9px;
+  color: var(--text-muted);
+  line-height: 1.6;
 }
 
+/* コンテンツ */
+.content { padding: 28px 36px 36px; }
+
 /* セクション */
-.section {
-  margin-bottom: 28px;
-}
+.section { margin-bottom: 28px; }
 .section:last-child { margin-bottom: 0; }
 
 .section-head {
@@ -93,7 +192,6 @@ body {
   letter-spacing: 0.1em;
   min-width: 20px;
 }
-.section-titles {}
 .section-jp {
   font-family: 'Noto Serif JP', serif;
   font-size: 16px;
@@ -121,31 +219,21 @@ body {
   padding: 10px 16px;
   background: var(--cream);
 }
-.price-row:nth-child(even) {
-  background: #f0e9df;
-}
-.price-row.highlight {
-  background: var(--brown-dark);
-}
+.price-row:nth-child(even) { background: #f0e9df; }
+.price-row.highlight { background: var(--brown-dark); }
 .row-label {
   font-size: 11px;
   color: var(--text-muted);
   letter-spacing: 0.05em;
 }
-.price-row.highlight .row-label {
-  color: var(--brown-light);
-}
+.price-row.highlight .row-label { color: var(--brown-light); }
 .row-note {
   font-size: 9px;
   color: var(--text-muted);
   margin-top: 2px;
 }
-.price-row.highlight .row-note {
-  color: rgba(196,170,148,0.7);
-}
-.row-price {
-  text-align: right;
-}
+.price-row.highlight .row-note { color: rgba(196,170,148,0.7); }
+.row-price { text-align: right; }
 .price-num {
   font-family: 'Noto Serif JP', serif;
   font-size: 20px;
@@ -153,17 +241,13 @@ body {
   color: var(--brown-dark);
   letter-spacing: 0.02em;
 }
-.price-row.highlight .price-num {
-  color: #fff;
-}
+.price-row.highlight .price-num { color: #fff; }
 .price-yen {
   font-size: 11px;
   color: var(--text-muted);
   margin-left: 1px;
 }
-.price-row.highlight .price-yen {
-  color: var(--brown-light);
-}
+.price-row.highlight .price-yen { color: var(--brown-light); }
 .price-tag {
   display: inline-block;
   font-size: 8px;
@@ -175,22 +259,13 @@ body {
   vertical-align: middle;
 }
 
-/* シミ・頭皮テーブル */
-.size-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-.size-table tr {
-  border-bottom: 0.5px solid var(--line);
-}
+/* テーブル */
+.size-table { width: 100%; border-collapse: collapse; }
+.size-table tr { border-bottom: 0.5px solid var(--line); }
 .size-table tr:last-child { border-bottom: none; }
 .size-table tr:nth-child(odd) td { background: var(--cream); }
 .size-table tr:nth-child(even) td { background: #f0e9df; }
-.size-table td {
-  padding: 9px 16px;
-  font-size: 11px;
-  color: var(--text);
-}
+.size-table td { padding: 9px 16px; font-size: 11px; color: var(--text); }
 .size-table td:first-child {
   font-family: 'Noto Serif JP', serif;
   font-size: 12px;
@@ -229,19 +304,14 @@ body {
 }
 
 /* 注意事項 */
-.notes {
-  background: var(--bg2);
-  padding: 18px 22px;
-}
+.notes { background: var(--bg2); padding: 18px 22px; }
 .notes-title {
   font-size: 9px;
   color: var(--brown);
   letter-spacing: 0.2em;
   margin-bottom: 8px;
 }
-.notes ul {
-  list-style: none;
-}
+.notes ul { list-style: none; }
 .notes ul li {
   font-size: 9px;
   color: var(--text-muted);
@@ -249,11 +319,7 @@ body {
   padding-left: 10px;
   position: relative;
 }
-.notes ul li::before {
-  content: '・';
-  position: absolute;
-  left: 0;
-}
+.notes ul li::before { content: '・'; position: absolute; left: 0; }
 
 /* フッター */
 .footer {
@@ -270,11 +336,7 @@ body {
   color: #fff;
   opacity: 0.9;
 }
-.footer-ig {
-  font-size: 9px;
-  color: var(--brown-light);
-  letter-spacing: 0.08em;
-}
+.footer-ig { font-size: 9px; color: var(--brown-light); letter-spacing: 0.08em; }
 </style>
 </head>
 <body>
@@ -287,27 +349,41 @@ body {
     <div class="header-line"></div>
   </div>
 
+  <!-- 1年間アフター保証 -->
+  <div class="guarantee-section">
+    <div class="guarantee-title-row">
+      <div class="guarantee-badge">施術後<br>1年間の<br>アフター補償<br>について</div>
+      <div class="guarantee-body">
+        <div class="guarantee-lead">当院のアートメイクは、施術後1年間<strong>色の抜け・定着に関するトラブルを対象とした</strong>アフター補償がございます。</div>
+        <ul class="guarantee-checks">
+          <li>色の抜け・定着が弱い場合の調整が対象です</li>
+          <li>施術後1年以内に気になる点があればご連絡ください</li>
+          <li>1年の起算日は、眉の2回目の施術完了日となります</li>
+        </ul>
+      </div>
+    </div>
+    <div class="guarantee-divider"></div>
+    <div class="guarantee-exclusion-title">以下は補償の対象外となります</div>
+    <ul class="guarantee-exclusion-list">
+      <li>形やデザインの変更</li>
+      <li>大幅なデザイン修正</li>
+      <li>ご本人のイメージ変更によるやり直し</li>
+    </ul>
+    <div class="guarantee-info">ℹ️ 1年経過後のリタッチ（再施術）をご希望の場合は、下記の価格表をご確認ください。</div>
+  </div>
+
   <div class="content">
 
     <!-- 眉 -->
     <div class="section">
       <div class="section-head">
         <div class="section-num">01</div>
-        <div class="section-titles">
+        <div>
           <div class="section-jp">眉アートメイク</div>
           <div class="section-en">Eyebrow Artmake</div>
         </div>
       </div>
       <div class="price-rows">
-        <div class="price-row">
-          <div>
-            <div class="row-label">1回施術</div>
-          </div>
-          <div class="row-price">
-            <span class="price-num">45,000</span>
-            <span class="price-yen">円</span>
-          </div>
-        </div>
         <div class="price-row highlight">
           <div>
             <div class="row-label">2回セット <span class="price-tag">おすすめ</span></div>
@@ -320,19 +396,11 @@ body {
         </div>
         <div class="price-row">
           <div>
-            <div class="row-label">リタッチ（当院施術後）</div>
+            <div class="row-label">リタッチ</div>
+            <div class="row-note">当院での施術後</div>
           </div>
           <div class="row-price">
             <span class="price-num">35,000</span>
-            <span class="price-yen">円</span>
-          </div>
-        </div>
-        <div class="price-row">
-          <div>
-            <div class="row-label">リタッチ（他院施術後）</div>
-          </div>
-          <div class="row-price">
-            <span class="price-num">45,000</span>
             <span class="price-yen">円</span>
           </div>
         </div>
@@ -345,22 +413,12 @@ body {
     <div class="section">
       <div class="section-head">
         <div class="section-num">02</div>
-        <div class="section-titles">
+        <div>
           <div class="section-jp">アイライン</div>
           <div class="section-en">Eyeliner Artmake</div>
         </div>
       </div>
       <div class="price-rows">
-        <div class="price-row">
-          <div>
-            <div class="row-label">1回施術</div>
-
-          </div>
-          <div class="row-price">
-            <span class="price-num">35,000</span>
-            <span class="price-yen">円</span>
-          </div>
-        </div>
         <div class="price-row highlight">
           <div>
             <div class="row-label">2回セット <span class="price-tag">おすすめ</span></div>
@@ -373,19 +431,11 @@ body {
         </div>
         <div class="price-row">
           <div>
-            <div class="row-label">リタッチ（当院施術後）</div>
+            <div class="row-label">リタッチ</div>
+            <div class="row-note">当院での施術後</div>
           </div>
           <div class="row-price">
             <span class="price-num">35,000</span>
-            <span class="price-yen">円</span>
-          </div>
-        </div>
-        <div class="price-row">
-          <div>
-            <div class="row-label">リタッチ（他院施術後）</div>
-          </div>
-          <div class="row-price">
-            <span class="price-num">45,000</span>
             <span class="price-yen">円</span>
           </div>
         </div>
@@ -398,7 +448,7 @@ body {
     <div class="section">
       <div class="section-head">
         <div class="section-num">03</div>
-        <div class="section-titles">
+        <div>
           <div class="section-jp">シミ消し・傷消し</div>
           <div class="section-en">Spot &amp; Scar Cover Artmake</div>
         </div>
@@ -429,7 +479,7 @@ body {
     <div class="section">
       <div class="section-head">
         <div class="section-num">04</div>
-        <div class="section-titles">
+        <div>
           <div class="section-jp">頭皮アートメイク</div>
           <div class="section-en">Scalp Artmake</div>
         </div>
